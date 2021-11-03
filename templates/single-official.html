@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>single official comes here</title>
+    <style>
+        *, *::after, *::before{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.5rem;
+            line-height: 1.5;
+            /* padding: 2rem; */
+            color: #333;
+            overflow: hidden;
+        }
+        .title{
+            text-transform: capitalize;
+            font-weight: 400;
+            text-align: center;
+            padding: 2rem;
+        }
+        .container{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: crimson;
+        }
+        .off{
+            width: 60%;
+            margin: auto;
+            border-radius: 30px;
+            padding: 2rem;
+            box-shadow: 0 0 10px;
+            position: relative;
+            background: white;
+        }
+        .off>*:not(:last-child){
+            margin-bottom: 2.5rem;
+        }
+        .off__des{
+            display: grid;
+            grid-template-columns: 20% 80%;
+        }
+        .off__image{
+            font-size: 10rem;
+        }
+        .pos-initials{
+            position: absolute;
+            top: -10%;
+            left: 90%;
+            background-color: black;
+            z-index: 10;
+            padding: 3rem;
+            font-size: 3rem;
+            text-transform: uppercase;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 4px;
+            clip-path: circle();
+            transform: rotate(-30deg);
+            transition: all .5s ease;
+        }
+        .pos-initials:hover{
+            transform: rotate(0);
+        }
+        .off__image{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* .off__image--img{
+            width: 90%;
+            height: 90%;
+        } */
+        .off__details{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .off__details>*:not(:last-child){
+            margin-bottom: 1rem;
+        }
+        .off__details--name{
+            font-size: 3rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            letter-spacing: 1.5px;
+        }
+        .off__details--age{
+            font-size: 2.4rem;
+        }
+        .off__details--technologies{
+            font-size: 2rem;
+        }
+        .off__position{
+            background-color: black;
+            padding: 1rem;
+            text-align: center;
+        }
+        .off__postition--position{
+            font-size: 2.6rem;
+            color: white;
+            letter-spacing: 1.8px;
+            font-weight: 300;
+        }
+        .off__description--description{
+            padding: 1rem;
+            font-size: 1.8rem;
+            line-height: 1.7;
+            letter-spacing: 1.5px;
+            text-align: justify;
+        }
+        .btn__back, .btn__back:link, .btn__back:visited{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            color: white;
+            background-color: black;
+            border-radius: 3px;
+            box-shadow: 0 0 9px;
+            display: inline-block;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">know more about {%OFFICIALNAME%}</h1>
+    <div class="container">
+        <div class="off">
+            <div class="pos-initials">{%P_I%}</div>
+            <a href="/overview" class="btn__back">👈back</a>
+            <div class="off__des">
+                <div class="off__image">
+                    {%OFFICIAL_IMAGE%}
+                </div>
+                <div class="off__details">
+                    <span class="off__details--name">{%OFFICIALNAME%}</span>
+                    <span class="off__details--age">{%OFFICIALAGE%}</span>
+                    <span class="off__details--technologies">{%OFFICIAL_P_LANGUAGES%}</span>
+                </div>
+            </div>
+
+            <div class="off__position">
+                <p class="off__postition--position">{%OFFICIAL_POSITION%}</p>
+            </div>
+            <div class="off__description">
+                <p class="off__description--description">
+                    {%OFFICIAL_DESCRIPTION%}
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- <div class="off">
+    <div class="pos-initials">c.t.o</div>
+    <a href="#" class="btn__back">👈back</a>
+    <div class="off__des">
+        <div class="off__image">
+            <img src="../images/user-1.jpg" alt="" class="off__image--img">
+        </div>
+        <div class="off__details">
+            <span class="off__details--name">Dennis Otwoma</span>
+            <span class="off__details--age">21</span>
+            <span class="off__details--technologies">html, css and javascript</span>
+        </div>
+    </div>
+
+    <div class="off__position">
+        <p class="off__postition--position">Chief Technology Officer</p>
+    </div>
+    <div class="off__description">
+        <p class="off__description--description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, accusantium. Numquam modi cupiditate nihil nam? Atque aspernatur at nulla laudantium.
+        </p>
+    </div>
+</div> -->

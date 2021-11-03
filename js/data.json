@@ -1,0 +1,46 @@
+[
+    {
+        "id":"0",
+        "image":"👨",
+        "firstName":"Ochiel",
+        "lastName": "Samuel",
+        "position":"Chief Executive Officer",
+        "initials":"C.E.O",
+        "technologies":"['Java', 'Firebase', 'Angular']",
+        "age": "22",
+        "about":"A hero in code, passionate about identifying and solving problems around the community, holds a degree in computer science from Kirinyaga university"
+    },
+    {
+        "id":"1",
+        "image":"🧑",
+        "firstName":"Muriungi",
+        "lastName": "Humphrey",
+        "position":"Chief Information officer",
+        "initials":"C.I.O",
+        "technologies":"['Photoshop', 'Vue', 'lightroom']",
+        "age": "21",
+        "about":"A hero in code, passionate about identifying and solving problems around the community, holds a degree in computer science from Kirinyaga university"
+    },
+    {
+        "id":"2",
+        "image":"👦",
+        "firstName":"Otwoma",
+        "lastName": "Dennis",
+        "position":"Chief Technology officer",
+        "initials":"C.T.O",
+        "age": "21",
+        "technologies":"['React', 'NodeJs', 'C++']",
+        "about":"A hero in code, passionate about identifying and solving problems around the community, holds a degree in computer science from Kirinyaga university"
+    },
+    {
+        "id":"3",
+        "image":"👨‍🦰",
+        "firstName":"Wanjiku",
+        "lastName": "Nathan",
+        "position":"Chief Organisation Officer",
+        "initials":"C.O.O",
+        "age": "20",
+        "technologies":"['Python', 'C#', 'Figma']",
+        "about":"A hero in code, passionate about identifying and solving problems around the community, holds a degree in computer science from Kirinyaga university"
+    }
+]

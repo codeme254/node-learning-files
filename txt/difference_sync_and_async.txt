@@ -1,0 +1,3 @@
+synchronouos JS means statements are processed one after another line by line
+while in asynchronous JS, the process taking long time is runned in the background and meanwhile, we
+continue executing the other statements and come back to the process once it is done.

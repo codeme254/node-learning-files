@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>an overview of all the officials of primetech company</title>
+    <style>
+        *, *::after, *::before{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.5rem;
+            line-height: 1.5;
+            padding: 2rem;
+            color: #333;
+        }
+        .container{
+            padding: 3rem 10rem;
+        }
+        .official{
+            display: flex;
+            align-items: center;
+            box-shadow: 0 0 5px;
+            /* justify-content: center; */
+            transform: skewX(-15deg);
+            padding: 2rem;
+            background-color: gold;
+            border: 3px solid crimson;
+            width: 70%;
+            margin: auto;
+            margin-bottom: 3rem;
+            position: relative;
+            animation-fill-mode: backwards;
+            transition: all .3s ease;
+        }
+        .official:hover{
+            box-shadow: 0 0 20px;
+        }
+        .official>*{
+            transform: skewX(15deg);
+        }
+        .official>*:not(:last-child){
+            margin-right: auto;
+        }
+        .official__image{
+            font-size: 8rem;
+        }
+        .official__details{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .official__details__name{
+            font-size: 3rem;
+            font-weight: 600;
+            /* color: white; */
+            color: black;
+            letter-spacing: 1.5px;
+        }
+        .official__details__postion{
+            font-size: 2rem;
+        }
+        .official__redirect--link:link, .official__redirect--link:visited{
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem;
+            letter-spacing: 1.3px;
+            box-shadow: 0 0 2px;
+            padding: 1rem 1.5rem;
+            border-radius: 3px;
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {%OFFICIALSCARDS%}
+    </div>
+</body>
+</html>
+<!-- <div class="official">
+            <div class="official__image">
+                <img src="../images/user-1.jpg" alt="official image" class="official__image--img">
+            </div>
+            <div class="official__details">
+                <span class="official__details__name">Dennis Otwoma</span>
+                <span class="official__details__postion">Chief Technology Officer</span>
+            </div>
+            <div class="official__redirect">
+                <a href="#" class="official__redirect--link">See More👉</a>
+            </div>
+        </div> -->
