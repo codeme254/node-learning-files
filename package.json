@@ -1,0 +1,19 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "\"Learning Node.js, Express and MongoDB\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeme254/node-learning-files.git"
+  },
+  "author": "Dennis Otwoma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeme254/node-learning-files/issues"
+  },
+  "homepage": "https://github.com/codeme254/node-learning-files#readme"
+}
