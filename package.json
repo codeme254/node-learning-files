@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/codeme254/node-learning-files/issues"
   },
-  "homepage": "https://github.com/codeme254/node-learning-files#readme"
+  "homepage": "https://github.com/codeme254/node-learning-files#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

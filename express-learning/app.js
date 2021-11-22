@@ -5,33 +5,48 @@ const app = express();
 
 //including the middlware----function that can modify incoming request data
 app.use(express.json())
-// //express is a function which upon calling will add a bunch of methods to our app variable above
-// app.get('/', (request, response) => {
-//     // response.status(200).send("Hello from the server side in express and postman...");
-//     //we can also send json data to the client as shown below
-//     response.status(200).json({message:'feel at home here in the server', app:'zpestiara'})
-// });
+// creating our own middleware
+app.use((request, response, next) => {
+    console.log("Hello from the middleware...");
+    next();
+})
 
-// //above was the get method and this is the post method now
-// app.post('/', (request, response) => {
-//     response.status(200).send("You can post to this server...")
-// })
-
-
-//starting our natours API by handling GET requests
-//implementing this on the tours route and the api
+// we can create a middleware to show the time that a request to the server was made
+app.use((request, response, next) => {
+    request.requestedTime = new Date().toLocaleDateString();
+    next();
+})
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`));
-app.get('/api/v1/tours', (request, response) => {
+const getAllTours = (request, response) => {
     response.status(200).json({
         status:'success',
         data:{
             tours
         }
     })
-});
+}
 
-//implementing route handler for post requests so that we can add new tours to our data set
-app.post('/api/v1/tours', (request, response) => {
+const getSingleTour =  (request, response) => {
+    console.log(request.requestedTime)
+    const id = request.params.id * 1;
+    //error checking to deny invalid ids
+    if(id > tours.length){
+        return response.status(404).json({
+            status:'fail',
+            message:'Invalid Id/unknown tour'
+        })
+    }
+    const tour = tours.find(el => el.id === id);
+    response.status(200).json({
+        status:'success',
+        // requestDate: request.requestedTime,
+        data:{
+            tour
+        }
+    })
+}
+
+const createTour = (request, response) => {
     // console.log(request.body)
     //creating a new ID, in REST apis, we don't create ids for the data, as this is automatically handled
     //by the database, however, in this situation, we don't have a database and so we do that manually
@@ -47,27 +62,44 @@ app.post('/api/v1/tours', (request, response) => {
             }
         })
     })
-})
+}
 
-
-//responding to the url parameters to get the exact single tour based on the id
-app.get('/api/v1/tours/:id', (request, response) => {
-    const id = request.params.id * 1;
-    //error checking to deny invalid ids
-    if(id > tours.length){
+const updateTour =  (request, response) => {
+    if(request.params.id * 1 > tours.length){
         return response.status(404).json({
-            status:'fail',
-            message:'Invalid Id/unknown tour'
+            status: 'fail',
+            message: 'Invalid tour id...'
         })
     }
-    const tour = tours.find(el => el.id === id);
     response.status(200).json({
         status:'success',
-        data:{
-            tour
+        data: {
+            tour: '<updated tour data will go here...>'
         }
     })
-})
+}
+
+const deleteTour = (request, response) => {
+    if(request.params.id * 1 > tours.length){
+        return response.status(404).json({
+            status: 'fail',
+            message: 'Invalid tour id...'
+        })
+    }
+    response.status(204).json({
+        status: 'sucess',
+        data: null
+    })
+}
+
+// app.get('/api/v1/tours', getAllTours);
+// app.post('/api/v1/tours', createTour)
+// app.get('/api/v1/tours/:id', getSingleTour)
+// app.patch('/api/v1/tours/:id', updateTour)
+// app.delete('/api/v1/tours/:id', deleteTour)
+//refactoring the routes
+app.route('/api/v1/tours').get(getAllTours).post(createTour)
+app.route('/api/v1/tours/:id').get(getSingleTour).patch(updateTour).delete(deleteTour)
 
 //listening to the server on a port
 const port = 3000;
