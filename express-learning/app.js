@@ -26,6 +26,10 @@ const getAllTours = (request, response) => {
     })
 }
 
+//mounting
+const userRoute = express.Router();
+const tourRoute = express.Router();
+
 const getSingleTour =  (request, response) => {
     console.log(request.requestedTime)
     const id = request.params.id * 1;
@@ -92,15 +96,59 @@ const deleteTour = (request, response) => {
     })
 }
 
+//the users functions
+const getAllUsers = (request, response) => {
+    response.status(500).json({
+        status: 'error',
+        message: 'this route is not yet defined'
+    })
+}
+
+const createUser = (request, response) => {
+    response.status(500).json({
+        status:'error',
+        message: 'this route is not yet defined'
+    })
+}
+
+const deleteUser = (request, response) => {
+    response.status(500).json({
+        status:'error',
+        'message':'this route is not yet defined'
+    })
+}
+const updateUser = (request, response) => {
+    response.status(500).json({
+        status:'error',
+        'message':'this route is not yet defined'
+    })
+}
+const getUser = (request, response) => {
+    response.status(500).json({
+        status:'error',
+        'message':'this route is not yet defined'
+    })
+}
+
 // app.get('/api/v1/tours', getAllTours);
 // app.post('/api/v1/tours', createTour)
 // app.get('/api/v1/tours/:id', getSingleTour)
 // app.patch('/api/v1/tours/:id', updateTour)
 // app.delete('/api/v1/tours/:id', deleteTour)
 //refactoring the routes
-app.route('/api/v1/tours').get(getAllTours).post(createTour)
-app.route('/api/v1/tours/:id').get(getSingleTour).patch(updateTour).delete(deleteTour)
+tourRoute.route('/').get(getAllTours).post(createTour)
+tourRoute.route('/:id').get(getSingleTour).patch(updateTour).delete(deleteTour)
 
+//the tours rout middleware
+app.use('/api/v1/tours', tourRoute)
+
+
+//implementing user routes
+userRoute.route('/').get(getAllUsers).post(createUser)
+userRoute.route('/:id').get(getUser).patch(updateUser).delete(deleteUser)
+
+//the tours middleware
+app.use('/api/v1/users', userRoute)
 //listening to the server on a port
 const port = 3000;
 app.listen(port, () => {
